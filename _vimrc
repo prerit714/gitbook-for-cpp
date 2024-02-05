@@ -300,5 +300,5 @@ autocmd filetype cpp command CppBuild :w <bar> !g++ -std=c++17
 
 " Compile and run cpp commands in debug mode
 autocmd filetype cpp command CppDebug :w <bar> !g++ -std=c++17
-      \ -Wall -Weffc++ -Wextra -Wconversion -Wsign-conversion -Werror
+      \ -Wall -Weffc++ -Wextra -Wconversion -Wsign-conversion -Werror -Wshadow
       \ -pedantic-errors % -o %:r && %:r.exe<cr>
