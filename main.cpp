@@ -1,22 +1,25 @@
-#include <cstdlib>
 #include <iostream>
-#include <vector>
+using namespace std;
 
-/**
- * NOTE: Below is how you define a templatized version of a function
- * */
+class Node {
+public:
+  int data{0};
+  Node *right{nullptr};
+  Node *left{nullptr};
 
-template <typename T> void out_vector(const std::vector<T> &v) {
-  for (const T &x : v) {
-    std::cout << x << ' ';
+  Node(int _data) : data{_data} {}
+
+  Node() { this->data = 0; }
+
+  void print_self() const {
+    cout << "Node(data=" << this->data << ")" << endl;
   }
-  std::cout << std::endl;
-}
+};
 
 int main() {
-
-  std::vector<int> v{1, 2, 3, 4, 5};
-  out_vector<int>(v);
-
-  return EXIT_SUCCESS;
+  Node *p{new Node()};
+  Node *q{new Node(40)};
+  p->print_self();
+  q->print_self();
+  return 0;
 }
