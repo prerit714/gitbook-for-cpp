@@ -1,25 +1,29 @@
+#include <cstdlib>
 #include <iostream>
 using namespace std;
 
-class Node {
-public:
-  int data{0};
-  Node *right{nullptr};
-  Node *left{nullptr};
+using u64 = uint_fast64_t;
+constexpr char WS = ' ';
+constexpr char NL = '\n';
 
-  Node(int _data) : data{_data} {}
-
-  Node() { this->data = 0; }
-
-  void print_self() const {
-    cout << "Node(data=" << this->data << ")" << endl;
+void wierd_algorithm(u64 &n) {
+  cout << n << WS; 
+  while (n > 1) {
+    if (n % 2 == 0) {
+      n = n / 2;
+    } else {
+      n = 3 * n + 1;
+    }
+    cout << n << WS;
   }
-};
+  cout << NL;
+}
 
 int main() {
-  Node *p{new Node()};
-  Node *q{new Node(40)};
-  p->print_self();
-  q->print_self();
-  return 0;
+  cin.tie(0);
+  cin.sync_with_stdio(false);
+  u64 n{};
+  cin >> n;
+  wierd_algorithm(n);
+  return EXIT_SUCCESS;
 }
